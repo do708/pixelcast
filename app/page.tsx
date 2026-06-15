@@ -4,47 +4,6 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
 
-      {/* NAVIGATION */}
-
-      <nav className="sticky top-0 z-50 bg-white border-b shadow-sm">
-
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
-
-          <Image
-            src="/pixelcast-logo.png"
-            alt="PixelCast"
-            width={220}
-            height={80}
-            priority
-          />
-
-          <div className="hidden lg:flex items-center gap-8 text-slate-700 font-medium">
-
-            <a href="/">Home</a>
-            <a href="/digital-signage">Digital Signage</a>
-            <a href="/audio-solutions">Audio Oplossingen</a>
-            <a href="/cloud">PixelCast Cloud</a>
-            <a href="/pricing">Tarieven</a>
-            <a href="/contact">Contact</a>
-
-            <div className="flex items-center gap-2 text-sm">
-              <span>🇳🇱 NL</span>
-              <span className="text-slate-300">|</span>
-              <span className="text-slate-400">🇬🇧 EN</span>
-            </div>
-
-            <a
-              href="/contact"
-              className="bg-purple-600 text-white px-5 py-3 rounded-xl hover:bg-purple-700"
-            >
-              Demo Aanvragen
-            </a>
-
-          </div>
-
-        </div>
-
-      </nav>
 
       {/* HERO */}
 
