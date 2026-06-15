@@ -18,10 +18,10 @@ export default function Navbar() {
 
         <a href="/">
           <Image
-            src="/images/logo.png"
+            src="/images/pixelcast-logo.png"
             alt="PixelCast"
-            width={180}
-            height={55}
+            width={360}
+            height={110}
             priority
           />
         </a>
