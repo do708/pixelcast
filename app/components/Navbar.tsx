@@ -20,8 +20,8 @@ export default function Navbar() {
           <Image
             src="/images/pixelcast-logo.png"
             alt="PixelCast"
-            width={360}
-            height={110}
+            width={275}
+            height={84}
             priority
           />
         </a>
