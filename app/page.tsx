@@ -10,14 +10,6 @@ return ( <main className="min-h-screen bg-white">
 
     <div className="max-w-7xl mx-auto px-6 text-center">
 
-      <Image
-        src="/images/logo.png"
-        alt="PixelCast"
-        width={500}
-        height={150}
-        className="mx-auto mb-10"
-        priority
-      />
 
       <h1 className="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
         Your Message, Everywhere.
