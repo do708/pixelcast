@@ -1,9 +1,9 @@
+
 import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-
 
       {/* HERO */}
 
@@ -17,7 +17,7 @@ export default function Home() {
 
           <p className="mt-8 text-xl text-slate-600 max-w-4xl mx-auto">
             Professionele Digital Signage, Audio Oplossingen en Cloud Management
-            voor organisaties die hun communicatie naar een hoger niveau willen brengen.
+            voor moderne organisaties.
           </p>
 
           <div className="mt-10 flex justify-center gap-4 flex-wrap">
@@ -26,7 +26,7 @@ export default function Home() {
               href="/contact"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold"
             >
-              Gratis Demo
+              Gratis Demo Aanvragen
             </a>
 
             <a
@@ -35,6 +35,22 @@ export default function Home() {
             >
               Bekijk Tarieven
             </a>
+
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-20">
+
+            <div className="bg-white rounded-2xl shadow p-6">
+              ✓ Europese Cloud Hosting
+            </div>
+
+            <div className="bg-white rounded-2xl shadow p-6">
+              ✓ 24/7 Monitoring
+            </div>
+
+            <div className="bg-white rounded-2xl shadow p-6">
+              ✓ Nederlandse Support
+            </div>
 
           </div>
 
@@ -48,31 +64,46 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-4xl font-bold text-center mb-16">
+          <h2 className="text-5xl font-bold text-center mb-16">
             Waarom PixelCast?
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
 
             <div className="border rounded-3xl p-8 shadow-sm">
-              <h3 className="text-2xl font-bold mb-4">Centrale Controle</h3>
+
+              <h3 className="text-2xl font-bold mb-4">
+                Centrale Controle
+              </h3>
+
               <p>
-                Beheer alle schermen, content en locaties vanuit één centraal platform.
+                Beheer al uw schermen, content en locaties vanuit één dashboard.
               </p>
+
             </div>
 
             <div className="border rounded-3xl p-8 shadow-sm">
-              <h3 className="text-2xl font-bold mb-4">24/7 Monitoring</h3>
+
+              <h3 className="text-2xl font-bold mb-4">
+                24/7 Monitoring
+              </h3>
+
               <p>
-                Ontvang meldingen wanneer schermen offline gaan of storingen vertonen.
+                Realtime inzicht in de status van uw complete signage netwerk.
               </p>
+
             </div>
 
             <div className="border rounded-3xl p-8 shadow-sm">
-              <h3 className="text-2xl font-bold mb-4">Nederlandse Support</h3>
+
+              <h3 className="text-2xl font-bold mb-4">
+                Schaalbaar
+              </h3>
+
               <p>
-                Persoonlijke ondersteuning door ervaren specialisten.
+                Van één scherm tot duizenden schermen wereldwijd.
               </p>
+
             </div>
 
           </div>
@@ -87,43 +118,50 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-4xl font-bold text-center mb-16">
+          <h2 className="text-5xl font-bold text-center mb-16">
             Onze Oplossingen
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
 
-            <div className="bg-white p-8 rounded-3xl shadow-lg">
+            <a
+              href="/digital-signage"
+              className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition"
+            >
               <h3 className="text-2xl font-bold mb-4">
                 Digital Signage
               </h3>
 
-              <p className="text-slate-600">
-                Dynamische schermcommunicatie voor retail, horeca,
-                kantoren, onderwijs en zorg.
+              <p>
+                Dynamische schermcommunicatie voor iedere branche.
               </p>
-            </div>
+            </a>
 
-            <div className="bg-white p-8 rounded-3xl shadow-lg">
+            <a
+              href="/audio-solutions"
+              className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition"
+            >
               <h3 className="text-2xl font-bold mb-4">
                 Audio Oplossingen
               </h3>
 
-              <p className="text-slate-600">
-                Achtergrondmuziek, omroepinstallaties,
-                DSP configuraties en multi-zone audio.
+              <p>
+                Achtergrondmuziek, omroepsystemen en netwerk audio.
               </p>
-            </div>
+            </a>
 
-            <div className="bg-white p-8 rounded-3xl shadow-lg">
+            <a
+              href="/cloud"
+              className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition"
+            >
               <h3 className="text-2xl font-bold mb-4">
                 PixelCast Cloud
               </h3>
 
-              <p className="text-slate-600">
-                Volledige controle over al uw schermen vanuit één cloudplatform.
+              <p>
+                Beheer al uw schermen centraal vanuit één cloudplatform.
               </p>
-            </div>
+            </a>
 
           </div>
 
@@ -137,18 +175,27 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Voor Welke Sectoren?
+          <h2 className="text-5xl font-bold text-center mb-16">
+            Sectoren
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
 
-            <div className="border rounded-3xl p-8">🛍️ Retail</div>
-            <div className="border rounded-3xl p-8">🏨 Horeca</div>
-            <div className="border rounded-3xl p-8">🏢 Kantoren</div>
-            <div className="border rounded-3xl p-8">🏥 Zorg</div>
-            <div className="border rounded-3xl p-8">🎓 Onderwijs</div>
-            <div className="border rounded-3xl p-8">🏭 Industrie</div>
+            <a href="/retail" className="border rounded-3xl p-8 text-center hover:shadow-lg transition">
+              🛍️ Retail
+            </a>
+
+            <a href="/hospitality" className="border rounded-3xl p-8 text-center hover:shadow-lg transition">
+              🏨 Hospitality
+            </a>
+
+            <a href="/healthcare" className="border rounded-3xl p-8 text-center hover:shadow-lg transition">
+              🏥 Healthcare
+            </a>
+
+            <a href="/corporate" className="border rounded-3xl p-8 text-center hover:shadow-lg transition">
+              🏢 Corporate
+            </a>
 
           </div>
 
@@ -156,86 +203,40 @@ export default function Home() {
 
       </section>
 
-      {/* VOORDELEN */}
+      {/* DASHBOARD */}
 
-      <section className="bg-slate-50 py-24">
-
-        <div className="max-w-6xl mx-auto px-6">
-
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Wat Levert PixelCast Op?
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-6">
-
-            <div className="bg-white border rounded-2xl p-6">
-              ✓ Professionele uitstraling
-            </div>
-
-            <div className="bg-white border rounded-2xl p-6">
-              ✓ Hogere klantbetrokkenheid
-            </div>
-
-            <div className="bg-white border rounded-2xl p-6">
-              ✓ Realtime content updates
-            </div>
-
-            <div className="bg-white border rounded-2xl p-6">
-              ✓ Centrale controle over alle locaties
-            </div>
-
-            <div className="bg-white border rounded-2xl p-6">
-              ✓ Minder beheer en onderhoud
-            </div>
-
-            <div className="bg-white border rounded-2xl p-6">
-              ✓ Schaalbaar van 1 tot 1000+ schermen
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* DASHBOARD PREVIEW */}
-
-      <section className="py-24">
+      <section className="bg-slate-900 text-white py-24">
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-4xl font-bold text-center mb-4">
-            Eén Dashboard Voor Al Uw Schermen
+          <h2 className="text-5xl font-bold text-center mb-6">
+            PixelCast Cloud Dashboard
           </h2>
 
-          <p className="text-center text-slate-600 text-xl mb-16">
-            Volledige controle over uw complete signage netwerk.
+          <p className="text-center text-slate-300 mb-16 text-xl">
+            Volledige controle over al uw schermen vanuit één centraal platform.
           </p>
 
-          <div className="bg-slate-900 rounded-3xl p-10 text-white">
+          <div className="grid md:grid-cols-4 gap-6">
 
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="bg-green-600 p-8 rounded-2xl">
+              <h3 className="text-4xl font-bold">127</h3>
+              <p>Online Schermen</p>
+            </div>
 
-              <div className="bg-green-600 rounded-xl p-6">
-                <h3 className="text-3xl font-bold">127</h3>
-                <p>Online Schermen</p>
-              </div>
+            <div className="bg-red-600 p-8 rounded-2xl">
+              <h3 className="text-4xl font-bold">2</h3>
+              <p>Offline Schermen</p>
+            </div>
 
-              <div className="bg-red-600 rounded-xl p-6">
-                <h3 className="text-3xl font-bold">2</h3>
-                <p>Offline Schermen</p>
-              </div>
+            <div className="bg-blue-600 p-8 rounded-2xl">
+              <h3 className="text-4xl font-bold">18</h3>
+              <p>Locaties</p>
+            </div>
 
-              <div className="bg-blue-600 rounded-xl p-6">
-                <h3 className="text-3xl font-bold">14</h3>
-                <p>Actieve Campagnes</p>
-              </div>
-
-              <div className="bg-purple-600 rounded-xl p-6">
-                <h3 className="text-3xl font-bold">18</h3>
-                <p>Locaties</p>
-              </div>
-
+            <div className="bg-purple-600 p-8 rounded-2xl">
+              <h3 className="text-4xl font-bold">14</h3>
+              <p>Actieve Campagnes</p>
             </div>
 
           </div>
@@ -244,42 +245,84 @@ export default function Home() {
 
       </section>
 
-      {/* TARIEVEN */}
+      {/* PRICING */}
 
       <section className="bg-slate-50 py-24">
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-4xl font-bold text-center mb-16">
+          <h2 className="text-5xl font-bold text-center mb-16">
             PixelCast Cloud Tarieven
           </h2>
 
           <div className="grid md:grid-cols-4 gap-8">
 
             <div className="bg-white border p-8 rounded-3xl">
-              <h3 className="text-2xl font-bold">Basic</h3>
-              <p className="text-5xl font-bold mt-6">€149</p>
-              <p className="text-slate-500">per scherm / jaar</p>
+
+              <h3 className="text-2xl font-bold">
+                Basic
+              </h3>
+
+              <p className="text-5xl font-bold mt-6">
+                €12,50
+              </p>
+
+              <p className="text-slate-500">
+                per scherm / maand
+              </p>
+
             </div>
 
             <div className="bg-white border-4 border-purple-500 p-8 rounded-3xl">
+
               <div className="bg-purple-600 text-white inline-block px-3 py-1 rounded-full text-sm mb-4">
                 MEEST GEKOZEN
               </div>
-              <h3 className="text-2xl font-bold">Professional</h3>
-              <p className="text-5xl font-bold mt-6">€249</p>
-              <p className="text-slate-500">per scherm / jaar</p>
+
+              <h3 className="text-2xl font-bold">
+                Professional
+              </h3>
+
+              <p className="text-5xl font-bold mt-6">
+                €20,95
+              </p>
+
+              <p className="text-slate-500">
+                per scherm / maand
+              </p>
+
+              <p className="mt-4 text-green-600 font-semibold">
+                🎁 Gratis Android Player
+              </p>
+
             </div>
 
             <div className="bg-white border p-8 rounded-3xl">
-              <h3 className="text-2xl font-bold">Enterprise</h3>
-              <p className="text-5xl font-bold mt-6">€349</p>
-              <p className="text-slate-500">per scherm / jaar</p>
+
+              <h3 className="text-2xl font-bold">
+                Enterprise
+              </h3>
+
+              <p className="text-5xl font-bold mt-6">
+                €29,95
+              </p>
+
+              <p className="text-slate-500">
+                per scherm / maand
+              </p>
+
             </div>
 
             <div className="bg-white border p-8 rounded-3xl">
-              <h3 className="text-2xl font-bold">Enterprise+</h3>
-              <p className="text-3xl font-bold mt-6">Op aanvraag</p>
+
+              <h3 className="text-2xl font-bold">
+                Enterprise+
+              </h3>
+
+              <p className="text-3xl font-bold mt-6">
+                Op aanvraag
+              </p>
+
             </div>
 
           </div>
@@ -288,35 +331,30 @@ export default function Home() {
 
       </section>
 
-      {/* FOOTER */}
+      {/* CTA */}
 
-      <footer className="bg-slate-900 text-white py-16">
+      <section className="py-24 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
 
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto text-center px-6">
 
-          <Image
-            src="/pixelcast-logo.png"
-            alt="PixelCast"
-            width={220}
-            height={80}
-            className="mx-auto"
-          />
+          <h2 className="text-5xl font-bold">
+            Klaar Om Uw Communicatie Te Transformeren?
+          </h2>
 
-          <p className="mt-6 text-slate-400">
-            Your Message, Everywhere.
+          <p className="text-xl mt-6">
+            Neem contact op voor een vrijblijvende demonstratie.
           </p>
 
-          <p className="mt-2 text-slate-400">
-            info@pixelcast.eu
-          </p>
-
-          <p className="mt-6 text-slate-500">
-            © 2026 PixelCast. Alle rechten voorbehouden.
-          </p>
+          <a
+            href="/contact"
+            className="inline-block mt-10 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold"
+          >
+            Vraag Een Demo Aan
+          </a>
 
         </div>
 
-      </footer>
+      </section>
 
     </main>
   );
