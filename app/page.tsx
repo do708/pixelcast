@@ -209,12 +209,12 @@ return ( <main className="min-h-screen bg-white">
         </a>
 
         <a
-          href="/healthcare"
+          href="/sports"
           className="rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition"
         >
           <Image
-            src="/images/healthcare.png"
-            alt="Healthcare"
+            src="/images/sports.png"
+            alt="Sports"
             width={1600}
             height={900}
             className="w-full h-64 object-cover"
@@ -222,7 +222,7 @@ return ( <main className="min-h-screen bg-white">
 
           <div className="bg-white p-6">
             <h3 className="text-2xl font-bold">
-              Healthcare
+              Sports
             </h3>
           </div>
         </a>
