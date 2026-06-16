@@ -16,8 +16,8 @@ export default function AudioSolutionsPage() {
 
           <p className="text-xl text-slate-600 max-w-4xl mx-auto">
             Professionele audio-oplossingen voor horeca, sportclubs,
-            kantoren, retail en recreatie. Van achtergrondmuziek tot
-            complete netwerk-audio en omroepinstallaties.
+            kantoren, retail, recreatie en evenementen.
+            Van achtergrondmuziek tot complete DSP- en omroepsystemen.
           </p>
 
           <div className="mt-12">
@@ -28,6 +28,7 @@ export default function AudioSolutionsPage() {
               width={1600}
               height={900}
               className="rounded-3xl shadow-2xl mx-auto"
+              priority
             />
 
           </div>
@@ -36,22 +37,21 @@ export default function AudioSolutionsPage() {
 
       </section>
 
-      {/* WAT IS AUDIO */}
+      {/* INTRO */}
 
       <section className="py-24">
 
         <div className="max-w-5xl mx-auto px-6 text-center">
 
           <h2 className="text-5xl font-bold mb-10">
-            Professionele Audio Oplossingen
+            Professionele Audio Voor Iedere Omgeving
           </h2>
 
           <p className="text-lg text-slate-600 leading-relaxed">
-            Audio is een essentieel onderdeel van de beleving binnen
-            organisaties, sportverenigingen, horeca en retail.
+            Audio bepaalt de beleving van uw bezoekers.
             PixelCast levert complete oplossingen voor achtergrondmuziek,
-            omroepinstallaties, DSP-configuraties, Dante netwerken en
-            multi-zone audiosystemen.
+            omroepinstallaties, DSP-configuratie, Dante-netwerken,
+            sportaccommodaties, kantines, vergaderruimtes en publieke ruimtes.
           </p>
 
         </div>
@@ -128,8 +128,8 @@ export default function AudioSolutionsPage() {
               </h3>
 
               <p>
-                Professionele audio voor evenementen, presentaties
-                en tijdelijke installaties.
+                Professionele audio voor evenementen,
+                presentaties en tijdelijke installaties.
               </p>
             </div>
 
@@ -149,7 +149,7 @@ export default function AudioSolutionsPage() {
             Onze Audio Diensten
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
 
             <div className="border rounded-3xl p-8">
               <h3 className="text-2xl font-bold mb-4">
@@ -177,17 +177,17 @@ export default function AudioSolutionsPage() {
               </h3>
 
               <p>
-                Optimale afregeling voor iedere ruimte.
+                Professionele afregeling voor optimale verstaanbaarheid.
               </p>
             </div>
 
             <div className="border rounded-3xl p-8">
               <h3 className="text-2xl font-bold mb-4">
-                🌐 Dante Audio
+                🌐 Dante Netwerken
               </h3>
 
               <p>
-                Moderne netwerk-audio oplossingen.
+                Moderne netwerk-audio infrastructuren.
               </p>
             </div>
 
@@ -197,18 +197,72 @@ export default function AudioSolutionsPage() {
               </h3>
 
               <p>
-                Verschillende muziek en volume per ruimte.
+                Verschillende audiozones met individuele aansturing.
               </p>
             </div>
 
             <div className="border rounded-3xl p-8">
               <h3 className="text-2xl font-bold mb-4">
-                🛠 Onderhoud & Support
+                🛠 Service & Onderhoud
               </h3>
 
               <p>
-                Monitoring, onderhoud en technische ondersteuning.
+                Onderhoud, monitoring en technische ondersteuning.
               </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* SPECIALISMEN */}
+
+      <section className="bg-slate-900 text-white py-24">
+
+        <div className="max-w-6xl mx-auto px-6 text-center">
+
+          <h2 className="text-5xl font-bold mb-16">
+            Onze Specialismen
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+
+            <div className="bg-slate-800 rounded-2xl p-6">
+              ✓ Achtergrondmuziek
+            </div>
+
+            <div className="bg-slate-800 rounded-2xl p-6">
+              ✓ Omroepinstallaties
+            </div>
+
+            <div className="bg-slate-800 rounded-2xl p-6">
+              ✓ DSP Configuratie
+            </div>
+
+            <div className="bg-slate-800 rounded-2xl p-6">
+              ✓ Dante Netwerken
+            </div>
+
+            <div className="bg-slate-800 rounded-2xl p-6">
+              ✓ Multi-Zone Audio
+            </div>
+
+            <div className="bg-slate-800 rounded-2xl p-6">
+              ✓ Sportkantines & Clubhuizen
+            </div>
+
+            <div className="bg-slate-800 rounded-2xl p-6">
+              ✓ Vergaderruimtes
+            </div>
+
+            <div className="bg-slate-800 rounded-2xl p-6">
+              ✓ Hotels & Horeca
+            </div>
+
+            <div className="bg-slate-800 rounded-2xl p-6">
+              ✓ Zwembaden & Recreatie
             </div>
 
           </div>
@@ -228,26 +282,25 @@ export default function AudioSolutionsPage() {
           </h2>
 
           <p className="text-center text-slate-600 text-lg mb-12">
-            PixelCast werkt met hoogwaardige audio-oplossingen van
-            toonaangevende fabrikanten.
+            PixelCast werkt uitsluitend met professionele audio-oplossingen van bewezen fabrikanten.
           </p>
 
           <div className="grid md:grid-cols-4 gap-8">
 
             <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
-              Yamaha
+              TOA
             </div>
 
             <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
-              QSC
+              Apart Audio
             </div>
 
             <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
-              Audac
+              Biamp
             </div>
 
             <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
-              Powersoft
+              JBL Professional
             </div>
 
           </div>
@@ -263,11 +316,11 @@ export default function AudioSolutionsPage() {
             </div>
 
             <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
-              JBL Professional
+              Powersoft
             </div>
 
             <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
-              Dante Audio
+              MAG Audio
             </div>
 
           </div>
@@ -288,7 +341,7 @@ export default function AudioSolutionsPage() {
 
           <p className="text-xl mt-6">
             Ontdek hoe PixelCast professionele audio-oplossingen kan leveren
-            voor uw organisatie, locatie of sportvereniging.
+            voor uw organisatie, sportvereniging of locatie.
           </p>
 
           <a
