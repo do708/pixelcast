@@ -5,7 +5,8 @@ import { useState } from "react";
 export default function TestPage() {
   const [loading, setLoading] = useState(false);
 
-  async function sendLead() {
+async function sendLead() {
+  try {
     setLoading(true);
 
     const response = await fetch("/api/contact", {
@@ -33,9 +34,13 @@ export default function TestPage() {
         ? "Lead opgeslagen!"
         : "Er ging iets fout"
     );
-
+  } catch (error) {
+    console.error(error);
+    alert("API fout");
+  } finally {
     setLoading(false);
   }
+}
 
   return (
     <main className="p-20">
