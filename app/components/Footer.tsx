@@ -1,11 +1,10 @@
-
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-white mt-20">
+    <footer className="bg-slate-900 text-white">
 
       <div className="max-w-7xl mx-auto px-6 py-16">
 
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="grid md:grid-cols-4 gap-12">
 
           {/* PixelCast */}
 
@@ -19,7 +18,7 @@ export default function Footer() {
               Your Message, Everywhere.
             </p>
 
-            <p className="mt-4 text-slate-500">
+            <p className="mt-4 text-slate-500 leading-relaxed">
               Professionele Digital Signage,
               Audio Solutions en Cloud Management
               voor moderne organisaties.
@@ -38,25 +37,37 @@ export default function Footer() {
             <ul className="space-y-3 text-slate-400">
 
               <li>
-                <a href="/digital-signage">
+                <a
+                  href="/digital-signage"
+                  className="hover:text-white transition"
+                >
                   Digital Signage
                 </a>
               </li>
 
               <li>
-                <a href="/audio-solutions">
+                <a
+                  href="/audio-solutions"
+                  className="hover:text-white transition"
+                >
                   Audio Solutions
                 </a>
               </li>
 
               <li>
-                <a href="/cloud">
+                <a
+                  href="/cloud"
+                  className="hover:text-white transition"
+                >
                   PixelCast Cloud
                 </a>
               </li>
 
               <li>
-                <a href="/pricing">
+                <a
+                  href="/pricing"
+                  className="hover:text-white transition"
+                >
                   Tarieven
                 </a>
               </li>
@@ -76,25 +87,37 @@ export default function Footer() {
             <ul className="space-y-3 text-slate-400">
 
               <li>
-                <a href="/retail">
+                <a
+                  href="/retail"
+                  className="hover:text-white transition"
+                >
                   Retail
                 </a>
               </li>
 
               <li>
-                <a href="/hospitality">
+                <a
+                  href="/hospitality"
+                  className="hover:text-white transition"
+                >
                   Hospitality
                 </a>
               </li>
 
               <li>
-                <a href="/healthcare">
-                  Healthcare
+                <a
+                  href="/sports"
+                  className="hover:text-white transition"
+                >
+                  Sportclubs
                 </a>
               </li>
 
               <li>
-                <a href="/corporate">
+                <a
+                  href="/corporate"
+                  className="hover:text-white transition"
+                >
                   Corporate
                 </a>
               </li>
@@ -114,7 +137,10 @@ export default function Footer() {
             <ul className="space-y-3 text-slate-400">
 
               <li>
-                <a href="/contact">
+                <a
+                  href="/contact"
+                  className="hover:text-white transition"
+                >
                   Contactformulier
                 </a>
               </li>
@@ -145,17 +171,17 @@ export default function Footer() {
               © 2026 PixelCast. Alle rechten voorbehouden.
             </p>
 
-            <div className="flex gap-6 text-sm text-slate-500">
+            <div className="flex flex-wrap gap-6 text-sm text-slate-500">
 
-              <a href="#">
+              <a href="#" className="hover:text-white transition">
                 Privacybeleid
               </a>
 
-              <a href="#">
+              <a href="#" className="hover:text-white transition">
                 Algemene Voorwaarden
               </a>
 
-              <a href="#">
+              <a href="#" className="hover:text-white transition">
                 Cookiebeleid
               </a>
 
