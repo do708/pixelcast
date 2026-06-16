@@ -13,8 +13,8 @@ export default function ContactPage() {
           </h1>
 
           <p className="text-xl text-slate-600">
-            Heeft u vragen over Digital Signage, Audio Solutions
-            of PixelCast Cloud? Neem vrijblijvend contact met ons op.
+            Heeft u vragen over Digital Signage, Audio Solutions of PixelCast Cloud?
+            Neem vrijblijvend contact met ons op.
           </p>
 
         </div>
@@ -40,105 +40,89 @@ export default function ContactPage() {
               <form className="space-y-6">
 
                 <div>
-
                   <label className="block font-semibold mb-2">
                     Naam *
                   </label>
 
                   <input
                     type="text"
-                    className="w-full border rounded-xl p-4"
                     placeholder="Uw naam"
+                    className="w-full border rounded-xl p-4"
                   />
-
                 </div>
 
                 <div>
-
                   <label className="block font-semibold mb-2">
                     Bedrijfsnaam
                   </label>
 
                   <input
                     type="text"
-                    className="w-full border rounded-xl p-4"
                     placeholder="Bedrijfsnaam"
+                    className="w-full border rounded-xl p-4"
                   />
-
                 </div>
 
                 <div>
-
                   <label className="block font-semibold mb-2">
                     E-mailadres *
                   </label>
 
                   <input
                     type="email"
-                    className="w-full border rounded-xl p-4"
                     placeholder="naam@bedrijf.nl"
+                    className="w-full border rounded-xl p-4"
                   />
-
                 </div>
 
                 <div>
-
                   <label className="block font-semibold mb-2">
                     Telefoonnummer
                   </label>
 
                   <input
                     type="tel"
-                    className="w-full border rounded-xl p-4"
                     placeholder="+31 6 12345678"
+                    className="w-full border rounded-xl p-4"
                   />
-
                 </div>
 
                 <div>
-
                   <label className="block font-semibold mb-2">
                     Interesse In
                   </label>
 
-                  <select
-                    className="w-full border rounded-xl p-4"
-                  >
+                  <select className="w-full border rounded-xl p-4">
                     <option>Digital Signage</option>
                     <option>Audio Solutions</option>
                     <option>PixelCast Cloud</option>
                     <option>Combinatie</option>
                     <option>Anders</option>
                   </select>
-
                 </div>
 
                 <div>
-
                   <label className="block font-semibold mb-2">
                     Aantal Schermen
                   </label>
 
                   <input
                     type="number"
-                    className="w-full border rounded-xl p-4"
                     placeholder="Bijvoorbeeld 5"
+                    className="w-full border rounded-xl p-4"
                   />
-
                 </div>
 
                 <div>
-
                   <label className="block font-semibold mb-2">
                     Bericht
                   </label>
 
                   <textarea
                     rows={6}
-                    className="w-full border rounded-xl p-4"
                     placeholder="Vertel ons iets over uw project..."
+                    className="w-full border rounded-xl p-4"
                   />
-
                 </div>
 
                 <button
@@ -156,68 +140,84 @@ export default function ContactPage() {
 
             <div>
 
-              <div className="bg-slate-50 rounded-3xl p-10">
+              <h2 className="text-4xl font-bold mb-8">
+                Contactgegevens
+              </h2>
 
-                <h2 className="text-4xl font-bold mb-10">
-                  Contactgegevens
-                </h2>
+              <div className="grid md:grid-cols-3 gap-6">
 
-                <div className="space-y-8">
+                {/* EMAIL */}
 
-                  <div>
+                <a
+                  href="mailto:info@pixelcast.eu"
+                  className="bg-slate-50 rounded-3xl p-8 text-center hover:shadow-lg transition"
+                >
 
-                    <h3 className="font-bold text-xl mb-2">
-                      📧 E-mail
-                    </h3>
-
-                    <a
-                      href="mailto:info@pixelcast.eu"
-                      className="text-blue-600 hover:underline"
-                    >
-                      info@pixelcast.eu
-                    </a>
-
+                  <div className="text-4xl mb-4">
+                    📧
                   </div>
 
-                  <div>
+                  <h3 className="font-bold text-xl mb-2">
+                    E-mail
+                  </h3>
 
-                    <h3 className="font-bold text-xl mb-2">
-                      🌍 Website
-                    </h3>
+                  <p className="text-blue-600 break-all">
+                    info@pixelcast.eu
+                  </p>
 
-                    <a
-                      href="/"
-                      className="text-blue-600 hover:underline"
-                    >
-                      www.pixelcast.eu
-                    </a>
+                </a>
 
+                {/* WEBSITE */}
+
+                <a
+                  href="/"
+                  className="bg-slate-50 rounded-3xl p-8 text-center hover:shadow-lg transition"
+                >
+
+                  <div className="text-4xl mb-4">
+                    🌍
                   </div>
 
-                  <div>
+                  <h3 className="font-bold text-xl mb-2">
+                    Website
+                  </h3>
 
-                    <h3 className="font-bold text-xl mb-2">
-                      ☁️ Platform
-                    </h3>
+                  <p className="text-blue-600">
+                    pixelcast.eu
+                  </p>
 
-                    <a
-                      href="https://cms.pixelcast.nl"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
-                    >
-                      PixelCast Cloud
-                    </a>
+                </a>
 
-                    <p className="text-slate-500 text-sm mt-1">
-                      Binnenkort beschikbaar
-                    </p>
+                {/* PLATFORM */}
 
+                <a
+                  href="https://cms.pixelcast.nl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-slate-50 rounded-3xl p-8 text-center hover:shadow-lg transition"
+                >
+
+                  <div className="text-4xl mb-4">
+                    ☁️
                   </div>
 
-                </div>
+                  <h3 className="font-bold text-xl mb-2">
+                    Platform
+                  </h3>
+
+                  <p className="text-blue-600">
+                    PixelCast Cloud
+                  </p>
+
+                  <p className="text-xs text-slate-500 mt-2">
+                    Binnenkort beschikbaar
+                  </p>
+
+                </a>
 
               </div>
+
+              {/* FAQ */}
 
               <div className="bg-slate-50 rounded-3xl p-10 mt-8">
 
@@ -230,11 +230,10 @@ export default function ContactPage() {
                 </h4>
 
                 <p className="text-slate-600">
-                  Vaak kunnen bestaande schermen of systemen worden
-                  hergebruikt. Wij komen graag bij u op locatie om de
-                  huidige situatie te beoordelen en geven een eerlijk
-                  advies over de meest geschikte en kostenefficiënte
-                  oplossing.
+                  Vaak kunnen bestaande schermen of systemen worden hergebruikt.
+                  Wij komen graag bij u op locatie om de huidige situatie te beoordelen
+                  en geven een eerlijk advies over de meest geschikte en
+                  kostenefficiënte oplossing.
                 </p>
 
               </div>
