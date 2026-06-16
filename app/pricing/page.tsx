@@ -31,7 +31,7 @@ export default function PricingPage() {
 
             {/* BASIC */}
 
-            <div className="bg-white border rounded-3xl p-8 shadow-sm">
+            <div className="bg-white border rounded-3xl p-8 shadow-sm flex flex-col min-h-[760px]">
 
               <h3 className="text-3xl font-bold">
                 Basic
@@ -53,7 +53,7 @@ export default function PricingPage() {
 
               </div>
 
-              <ul className="mt-8 space-y-4">
+              <ul className="mt-8 space-y-4 flex-grow">
 
                 <li>✓ Cloud CMS</li>
                 <li>✓ Content Planning</li>
@@ -66,7 +66,7 @@ export default function PricingPage() {
 
               <a
                 href="/contact"
-                className="block mt-10 text-center bg-blue-600 text-white py-4 rounded-xl font-semibold"
+                className="mt-auto text-center bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-semibold transition"
               >
                 Demo Aanvragen
               </a>
@@ -75,7 +75,7 @@ export default function PricingPage() {
 
             {/* PROFESSIONAL */}
 
-            <div className="bg-white border-4 border-purple-500 rounded-3xl p-8 shadow-xl">
+            <div className="bg-white border-4 border-purple-500 rounded-3xl p-8 shadow-xl flex flex-col min-h-[760px]">
 
               <div className="inline-block bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
                 MEEST GEKOZEN
@@ -101,7 +101,7 @@ export default function PricingPage() {
 
               </div>
 
-              <ul className="mt-8 space-y-4">
+              <ul className="mt-8 space-y-4 flex-grow">
 
                 <li>✓ Alles uit Basic</li>
                 <li>✓ 24/7 Monitoring</li>
@@ -114,7 +114,7 @@ export default function PricingPage() {
 
               <a
                 href="/contact"
-                className="block mt-10 text-center bg-purple-600 text-white py-4 rounded-xl font-semibold"
+                className="mt-auto text-center bg-purple-600 hover:bg-purple-700 text-white py-4 rounded-xl font-semibold transition"
               >
                 Demo Aanvragen
               </a>
@@ -123,7 +123,7 @@ export default function PricingPage() {
 
             {/* ENTERPRISE */}
 
-            <div className="bg-white border rounded-3xl p-8 shadow-sm">
+            <div className="bg-white border rounded-3xl p-8 shadow-sm flex flex-col min-h-[760px]">
 
               <h3 className="text-3xl font-bold">
                 Enterprise
@@ -145,7 +145,7 @@ export default function PricingPage() {
 
               </div>
 
-              <ul className="mt-8 space-y-4">
+              <ul className="mt-8 space-y-4 flex-grow">
 
                 <li>✓ Alles uit Professional</li>
                 <li>✓ API Integraties</li>
@@ -158,7 +158,7 @@ export default function PricingPage() {
 
               <a
                 href="/contact"
-                className="block mt-10 text-center bg-blue-600 text-white py-4 rounded-xl font-semibold"
+                className="mt-auto text-center bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-semibold transition"
               >
                 Demo Aanvragen
               </a>
@@ -167,7 +167,7 @@ export default function PricingPage() {
 
             {/* ENTERPRISE+ */}
 
-            <div className="bg-slate-900 text-white rounded-3xl p-8 shadow-sm">
+            <div className="bg-slate-900 text-white rounded-3xl p-8 shadow-sm flex flex-col min-h-[760px]">
 
               <h3 className="text-3xl font-bold">
                 Enterprise+
@@ -179,13 +179,13 @@ export default function PricingPage() {
 
               <div className="mt-8">
 
-                <span className="text-4xl font-bold">
+                <span className="text-5xl font-bold">
                   Op Aanvraag
                 </span>
 
               </div>
 
-              <ul className="mt-8 space-y-4">
+              <ul className="mt-8 space-y-4 flex-grow">
 
                 <li>✓ On-Premise Opties</li>
                 <li>✓ White Label</li>
@@ -198,7 +198,7 @@ export default function PricingPage() {
 
               <a
                 href="/contact"
-                className="block mt-10 text-center bg-white text-slate-900 py-4 rounded-xl font-semibold"
+                className="mt-auto text-center bg-white text-slate-900 py-4 rounded-xl font-semibold hover:bg-slate-100 transition"
               >
                 Contact Opnemen
               </a>
@@ -211,93 +211,26 @@ export default function PricingPage() {
 
       </section>
 
-      {/* VERGELIJKING */}
+      {/* CTA */}
 
-      <section className="bg-slate-50 py-24">
+      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-24 text-white">
 
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto text-center px-6">
 
-          <h2 className="text-5xl font-bold text-center mb-16">
-            Vergelijk Onze Pakketten
+          <h2 className="text-5xl font-bold">
+            Klaar om te starten?
           </h2>
 
-          <div className="overflow-x-auto">
+          <p className="text-xl mt-6">
+            Plan een vrijblijvende demo en ontdek wat PixelCast voor uw organisatie kan betekenen.
+          </p>
 
-            <table className="w-full bg-white rounded-3xl overflow-hidden shadow">
-
-              <thead className="bg-slate-100">
-
-                <tr>
-
-                  <th className="p-5 text-left">
-                    Functionaliteit
-                  </th>
-
-                  <th className="p-5">
-                    Basic
-                  </th>
-
-                  <th className="p-5">
-                    Professional
-                  </th>
-
-                  <th className="p-5">
-                    Enterprise
-                  </th>
-
-                </tr>
-
-              </thead>
-
-              <tbody>
-
-                <tr className="border-b">
-                  <td className="p-5">Cloud CMS</td>
-                  <td className="text-center">✓</td>
-                  <td className="text-center">✓</td>
-                  <td className="text-center">✓</td>
-                </tr>
-
-                <tr className="border-b">
-                  <td className="p-5">Content Planning</td>
-                  <td className="text-center">✓</td>
-                  <td className="text-center">✓</td>
-                  <td className="text-center">✓</td>
-                </tr>
-
-                <tr className="border-b">
-                  <td className="p-5">24/7 Monitoring</td>
-                  <td className="text-center">—</td>
-                  <td className="text-center">✓</td>
-                  <td className="text-center">✓</td>
-                </tr>
-
-                <tr className="border-b">
-                  <td className="p-5">Android Player</td>
-                  <td className="text-center">—</td>
-                  <td className="text-center">✓</td>
-                  <td className="text-center">✓</td>
-                </tr>
-
-                <tr className="border-b">
-                  <td className="p-5">API Integratie</td>
-                  <td className="text-center">—</td>
-                  <td className="text-center">—</td>
-                  <td className="text-center">✓</td>
-                </tr>
-
-                <tr>
-                  <td className="p-5">SLA Support</td>
-                  <td className="text-center">—</td>
-                  <td className="text-center">—</td>
-                  <td className="text-center">✓</td>
-                </tr>
-
-              </tbody>
-
-            </table>
-
-          </div>
+          <a
+            href="/contact"
+            className="inline-block mt-10 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold"
+          >
+            Vraag Een Demo Aan
+          </a>
 
         </div>
 
