@@ -21,7 +21,7 @@ export default function PricingPage() {
 
       </section>
 
-      {/* PRIJZEN */}
+      {/* PRIJSKAARTEN */}
 
       <section className="py-24">
 
@@ -44,11 +44,15 @@ export default function PricingPage() {
               <div className="mt-8">
 
                 <span className="text-6xl font-bold">
-                  €12,50
+                  €17,95
                 </span>
 
                 <p className="text-slate-500 mt-2">
                   per scherm / maand
+                </p>
+
+                <p className="text-sm text-slate-400">
+                  Jaarlijks gefactureerd
                 </p>
 
               </div>
@@ -92,11 +96,15 @@ export default function PricingPage() {
               <div className="mt-8">
 
                 <span className="text-6xl font-bold">
-                  €20,95
+                  €24,95
                 </span>
 
                 <p className="text-slate-500 mt-2">
                   per scherm / maand
+                </p>
+
+                <p className="text-sm text-slate-400">
+                  Jaarlijks gefactureerd
                 </p>
 
               </div>
@@ -136,11 +144,15 @@ export default function PricingPage() {
               <div className="mt-8">
 
                 <span className="text-6xl font-bold">
-                  €29,95
+                  €34,95
                 </span>
 
                 <p className="text-slate-500 mt-2">
                   per scherm / maand
+                </p>
+
+                <p className="text-sm text-slate-400">
+                  Jaarlijks gefactureerd
                 </p>
 
               </div>
@@ -179,7 +191,7 @@ export default function PricingPage() {
 
               <div className="mt-8">
 
-                <span className="text-5xl font-bold">
+                <span className="text-4xl font-bold whitespace-nowrap">
                   Op Aanvraag
                 </span>
 
@@ -207,30 +219,109 @@ export default function PricingPage() {
 
           </div>
 
+          <p className="text-center text-slate-500 mt-10">
+            Alle prijzen zijn exclusief BTW en worden jaarlijks gefactureerd.
+          </p>
+
         </div>
 
       </section>
 
-      {/* CTA */}
+      {/* VERGELIJKINGSTABEL */}
 
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-24 text-white">
+      <section className="bg-slate-50 py-24">
 
-        <div className="max-w-4xl mx-auto text-center px-6">
+        <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-5xl font-bold">
-            Klaar om te starten?
+          <h2 className="text-5xl font-bold text-center mb-16">
+            Vergelijk Onze Pakketten
           </h2>
 
-          <p className="text-xl mt-6">
-            Plan een vrijblijvende demo en ontdek wat PixelCast voor uw organisatie kan betekenen.
-          </p>
+          <div className="overflow-x-auto">
 
-          <a
-            href="/contact"
-            className="inline-block mt-10 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold"
-          >
-            Vraag Een Demo Aan
-          </a>
+            <table className="w-full bg-white rounded-3xl overflow-hidden shadow-lg">
+
+              <thead className="bg-slate-100">
+
+                <tr>
+                  <th className="p-5 text-left">Functionaliteit</th>
+                  <th className="p-5">Basic</th>
+                  <th className="p-5">Professional</th>
+                  <th className="p-5">Enterprise</th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <tr className="border-b">
+                  <td className="p-5">Cloud CMS</td>
+                  <td className="text-center">✓</td>
+                  <td className="text-center">✓</td>
+                  <td className="text-center">✓</td>
+                </tr>
+
+                <tr className="border-b">
+                  <td className="p-5">Content Planning</td>
+                  <td className="text-center">✓</td>
+                  <td className="text-center">✓</td>
+                  <td className="text-center">✓</td>
+                </tr>
+
+                <tr className="border-b">
+                  <td className="p-5">Playlists</td>
+                  <td className="text-center">✓</td>
+                  <td className="text-center">✓</td>
+                  <td className="text-center">✓</td>
+                </tr>
+
+                <tr className="border-b">
+                  <td className="p-5">24/7 Monitoring</td>
+                  <td className="text-center">—</td>
+                  <td className="text-center">✓</td>
+                  <td className="text-center">✓</td>
+                </tr>
+
+                <tr className="border-b">
+                  <td className="p-5">Remote Reboot</td>
+                  <td className="text-center">—</td>
+                  <td className="text-center">✓</td>
+                  <td className="text-center">✓</td>
+                </tr>
+
+                <tr className="border-b">
+                  <td className="p-5">Android Player Inclusief</td>
+                  <td className="text-center">—</td>
+                  <td className="text-center">✓</td>
+                  <td className="text-center">✓</td>
+                </tr>
+
+                <tr className="border-b">
+                  <td className="p-5">API Integraties</td>
+                  <td className="text-center">—</td>
+                  <td className="text-center">—</td>
+                  <td className="text-center">✓</td>
+                </tr>
+
+                <tr className="border-b">
+                  <td className="p-5">Multi-Locatie Beheer</td>
+                  <td className="text-center">—</td>
+                  <td className="text-center">—</td>
+                  <td className="text-center">✓</td>
+                </tr>
+
+                <tr>
+                  <td className="p-5">SLA Support</td>
+                  <td className="text-center">—</td>
+                  <td className="text-center">—</td>
+                  <td className="text-center">✓</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
 
         </div>
 
