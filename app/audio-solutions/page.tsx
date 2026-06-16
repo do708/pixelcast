@@ -1,120 +1,213 @@
-export default function AudioSolutions() {
+import Image from "next/image";
+
+export default function AudioSolutionsPage() {
   return (
     <main className="min-h-screen bg-white">
 
       {/* HERO */}
 
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-32">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-24">
 
         <div className="max-w-7xl mx-auto px-6 text-center">
 
           <h1 className="text-6xl font-bold mb-8">
-            Audio Oplossingen
+            Audio Solutions
           </h1>
 
-          <p className="text-xl max-w-3xl mx-auto text-slate-300">
-            Professionele audio-oplossingen voor retail, horeca,
-            kantoren, onderwijs, zorginstellingen en industrie.
+          <p className="text-xl text-slate-600 max-w-4xl mx-auto">
+            Professionele audio-oplossingen voor horeca, sportclubs,
+            kantoren, retail en recreatie. Van achtergrondmuziek tot
+            complete netwerk-audio en omroepinstallaties.
           </p>
+
+          <div className="mt-12">
+
+            <Image
+              src="/images/audio.png"
+              alt="Audio Solutions"
+              width={1600}
+              height={900}
+              className="rounded-3xl shadow-2xl mx-auto"
+            />
+
+          </div>
 
         </div>
 
       </section>
 
-      {/* INTRO */}
+      {/* WAT IS AUDIO */}
 
       <section className="py-24">
 
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-6 text-center">
 
-          <h2 className="text-4xl font-bold text-center mb-12">
-            Heldere Communicatie. Perfect Geluid.
+          <h2 className="text-5xl font-bold mb-10">
+            Professionele Audio Oplossingen
           </h2>
 
-          <p className="text-center text-xl text-slate-600 max-w-4xl mx-auto">
-            PixelCast levert complete audio-oplossingen van ontwerp
-            tot installatie en beheer. Van achtergrondmuziek tot
-            professionele omroep- en netwerkaudiosystemen.
+          <p className="text-lg text-slate-600 leading-relaxed">
+            Audio is een essentieel onderdeel van de beleving binnen
+            organisaties, sportverenigingen, horeca en retail.
+            PixelCast levert complete oplossingen voor achtergrondmuziek,
+            omroepinstallaties, DSP-configuraties, Dante netwerken en
+            multi-zone audiosystemen.
           </p>
 
         </div>
 
       </section>
 
-      {/* SERVICES */}
+      {/* TOEPASSINGEN */}
 
       <section className="bg-slate-50 py-24">
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Onze Audio Diensten
+          <h2 className="text-5xl font-bold text-center mb-16">
+            Toepassingen
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
 
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
+            <div className="bg-white p-8 rounded-3xl shadow-sm">
+              <h3 className="text-2xl font-bold mb-4">
+                🏨 Horeca
+              </h3>
+
+              <p>
+                Achtergrondmuziek, omroepinstallaties en multi-zone audio
+                voor restaurants, cafés en hotels.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl shadow-sm">
+              <h3 className="text-2xl font-bold mb-4">
+                🏢 Corporate
+              </h3>
+
+              <p>
+                Vergaderruimtes, presentatiesystemen en bedrijfsomroep.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl shadow-sm">
+              <h3 className="text-2xl font-bold mb-4">
+                🛍️ Retail
+              </h3>
+
+              <p>
+                Muziekbeleving, klantcommunicatie en promotionele audio.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl shadow-sm">
+              <h3 className="text-2xl font-bold mb-4">
+                ⚽ Sportclubs
+              </h3>
+
+              <p>
+                Omroepinstallaties, wedstrijdinformatie, sponsoruitingen
+                en clubcommunicatie.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl shadow-sm">
+              <h3 className="text-2xl font-bold mb-4">
+                🏊 Zwembaden & Recreatie
+              </h3>
+
+              <p>
+                Publieksomroep, achtergrondmuziek en veiligheidsmeldingen.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl shadow-sm">
+              <h3 className="text-2xl font-bold mb-4">
+                🎤 Evenementen
+              </h3>
+
+              <p>
+                Professionele audio voor evenementen, presentaties
+                en tijdelijke installaties.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* DIENSTEN */}
+
+      <section className="py-24">
+
+        <div className="max-w-7xl mx-auto px-6">
+
+          <h2 className="text-5xl font-bold text-center mb-16">
+            Onze Audio Diensten
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div className="border rounded-3xl p-8">
               <h3 className="text-2xl font-bold mb-4">
                 🎵 Achtergrondmuziek
               </h3>
 
               <p>
-                Professionele muzieksystemen voor winkels,
-                restaurants, hotels en kantoren.
+                Professionele muziekoplossingen voor iedere omgeving.
               </p>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
+            <div className="border rounded-3xl p-8">
               <h3 className="text-2xl font-bold mb-4">
                 📢 Omroepinstallaties
               </h3>
 
               <p>
-                Heldere spraakversterking voor interne communicatie
-                en publieke aankondigingen.
+                Duidelijke communicatie voor bezoekers en personeel.
               </p>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
+            <div className="border rounded-3xl p-8">
               <h3 className="text-2xl font-bold mb-4">
-                🌐 Network Audio
+                🎚 DSP Configuratie
               </h3>
 
               <p>
-                Moderne IP-gebaseerde audio-oplossingen voor
-                meerdere locaties.
+                Optimale afregeling voor iedere ruimte.
               </p>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
+            <div className="border rounded-3xl p-8">
               <h3 className="text-2xl font-bold mb-4">
-                🔊 DSP Configuratie
+                🌐 Dante Audio
               </h3>
 
               <p>
-                Professionele tuning en optimalisatie van
-                audiosystemen.
+                Moderne netwerk-audio oplossingen.
               </p>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
+            <div className="border rounded-3xl p-8">
               <h3 className="text-2xl font-bold mb-4">
-                🏢 Multi-Zone Audio
+                🔊 Multi-Zone Audio
               </h3>
 
               <p>
-                Onafhankelijke muziek- en omroepzones binnen
-                één gebouw of locatie.
+                Verschillende muziek en volume per ruimte.
               </p>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
+            <div className="border rounded-3xl p-8">
               <h3 className="text-2xl font-bold mb-4">
-                ☁️ Remote Monitoring
+                🛠 Onderhoud & Support
               </h3>
 
               <p>
-                Monitoring en beheer van audiosystemen op afstand.
+                Monitoring, onderhoud en technische ondersteuning.
               </p>
             </div>
 
@@ -124,98 +217,57 @@ export default function AudioSolutions() {
 
       </section>
 
-      {/* MARKTEN */}
-
-      <section className="py-24">
-
-        <div className="max-w-7xl mx-auto px-6">
-
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Toepassingen
-          </h2>
-
-          <div className="grid md:grid-cols-4 gap-6">
-
-            <div className="border rounded-2xl p-6 text-center">
-              🛍️ Retail
-            </div>
-
-            <div className="border rounded-2xl p-6 text-center">
-              🏨 Horeca
-            </div>
-
-            <div className="border rounded-2xl p-6 text-center">
-              🏢 Kantoren
-            </div>
-
-            <div className="border rounded-2xl p-6 text-center">
-              🏥 Zorg
-            </div>
-
-            <div className="border rounded-2xl p-6 text-center">
-              🎓 Onderwijs
-            </div>
-
-            <div className="border rounded-2xl p-6 text-center">
-              🏭 Industrie
-            </div>
-
-            <div className="border rounded-2xl p-6 text-center">
-              🚉 Transport
-            </div>
-
-            <div className="border rounded-2xl p-6 text-center">
-              🏟️ Evenementen
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* BRANDS */}
+      {/* HARDWARE */}
 
       <section className="bg-slate-50 py-24">
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Ondersteunde Merken
+          <h2 className="text-5xl font-bold text-center mb-16">
+            Professionele Audio Hardware
           </h2>
 
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+          <p className="text-center text-slate-600 text-lg mb-12">
+            PixelCast werkt met hoogwaardige audio-oplossingen van
+            toonaangevende fabrikanten.
+          </p>
 
-            <div className="border bg-white rounded-2xl p-8">
-              Bosch
-            </div>
+          <div className="grid md:grid-cols-4 gap-8">
 
-            <div className="border bg-white rounded-2xl p-8">
-              TOA
-            </div>
-
-            <div className="border bg-white rounded-2xl p-8">
-              Apart Audio
-            </div>
-
-            <div className="border bg-white rounded-2xl p-8">
-              Biamp
-            </div>
-
-            <div className="border bg-white rounded-2xl p-8">
+            <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
               Yamaha
             </div>
 
-            <div className="border bg-white rounded-2xl p-8">
+            <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
               QSC
             </div>
 
-            <div className="border bg-white rounded-2xl p-8">
+            <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
               Audac
             </div>
 
-            <div className="border bg-white rounded-2xl p-8">
-              Sonos Pro
+            <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
+              Powersoft
+            </div>
+
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8 mt-8">
+
+            <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
+              Bose Professional
+            </div>
+
+            <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
+              Shure
+            </div>
+
+            <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
+              JBL Professional
+            </div>
+
+            <div className="bg-white border rounded-2xl p-6 text-center font-semibold">
+              Dante Audio
             </div>
 
           </div>
@@ -226,23 +278,24 @@ export default function AudioSolutions() {
 
       {/* CTA */}
 
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-24">
+      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-24 text-white">
 
         <div className="max-w-4xl mx-auto text-center px-6">
 
           <h2 className="text-5xl font-bold">
-            Op Zoek Naar Een Professionele Audio Oplossing?
+            Klaar om uw audio naar een hoger niveau te brengen?
           </h2>
 
-          <p className="mt-6 text-xl">
-            Neem contact op voor advies, ontwerp en implementatie.
+          <p className="text-xl mt-6">
+            Ontdek hoe PixelCast professionele audio-oplossingen kan leveren
+            voor uw organisatie, locatie of sportvereniging.
           </p>
 
           <a
             href="/contact"
             className="inline-block mt-10 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold"
           >
-            Vraag Advies Aan
+            Vraag Een Demo Aan
           </a>
 
         </div>
