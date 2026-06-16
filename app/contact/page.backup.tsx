@@ -1,56 +1,4 @@
-"use client";
-
-import { useState } from "react";
-
 export default function ContactPage() {
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-
-  async function handleSubmit(
-    e: React.FormEvent<HTMLFormElement>
-  ) {
-    e.preventDefault();
-
-    const form = e.currentTarget;
-
-    setLoading(true);
-    setSuccess(false);
-
-    try {
-      const formData = new FormData(form);
-
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.get("name"),
-          company: formData.get("company"),
-          email: formData.get("email"),
-          phone: formData.get("phone"),
-          interest: formData.get("interest"),
-          screens: Number(formData.get("screens")),
-          message: formData.get("message"),
-        }),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        setSuccess(true);
-        form.reset();
-      } else {
-        alert("Er ging iets fout bij het versturen van uw aanvraag.");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Er ging iets fout bij het versturen van uw aanvraag.");
-    }
-
-    setLoading(false);
-  }
-
   return (
     <main className="min-h-screen bg-white">
 
@@ -83,141 +31,100 @@ export default function ContactPage() {
             Neem Contact Op
           </h2>
 
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-6"
-          >
+          <form className="space-y-6">
 
             <div>
-
               <label className="block font-semibold mb-2">
                 Naam *
               </label>
 
               <input
-                name="name"
-                required
                 type="text"
                 placeholder="Uw naam"
                 className="w-full border rounded-xl p-4"
               />
-
             </div>
 
             <div>
-
               <label className="block font-semibold mb-2">
                 Bedrijfsnaam
               </label>
 
               <input
-                name="company"
                 type="text"
                 placeholder="Bedrijfsnaam"
                 className="w-full border rounded-xl p-4"
               />
-
             </div>
 
             <div>
-
               <label className="block font-semibold mb-2">
                 E-mailadres *
               </label>
 
               <input
-                name="email"
-                required
                 type="email"
                 placeholder="naam@bedrijf.nl"
                 className="w-full border rounded-xl p-4"
               />
-
             </div>
 
             <div>
-
               <label className="block font-semibold mb-2">
                 Telefoonnummer
               </label>
 
               <input
-                name="phone"
                 type="tel"
                 placeholder="+31 6 12345678"
                 className="w-full border rounded-xl p-4"
               />
-
             </div>
 
             <div>
-
               <label className="block font-semibold mb-2">
                 Interesse In
               </label>
 
-              <select
-                name="interest"
-                className="w-full border rounded-xl p-4"
-              >
+              <select className="w-full border rounded-xl p-4">
                 <option>Digital Signage</option>
                 <option>Audio Solutions</option>
                 <option>PixelCast Cloud</option>
                 <option>Combinatie</option>
                 <option>Anders</option>
               </select>
-
             </div>
 
             <div>
-
               <label className="block font-semibold mb-2">
                 Aantal Schermen
               </label>
 
               <input
-                name="screens"
                 type="number"
                 placeholder="Bijvoorbeeld 5"
                 className="w-full border rounded-xl p-4"
               />
-
             </div>
 
             <div>
-
               <label className="block font-semibold mb-2">
                 Bericht
               </label>
 
               <textarea
-                name="message"
                 rows={6}
                 placeholder="Vertel ons iets over uw project..."
                 className="w-full border rounded-xl p-4"
               />
-
             </div>
 
             <button
               type="submit"
-              disabled={loading}
-              className="bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white px-8 py-4 rounded-xl font-semibold transition"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition"
             >
-              {loading
-                ? "Versturen..."
-                : "Verstuur Aanvraag"}
+              Verstuur Aanvraag
             </button>
-
-            {success && (
-
-              <div className="bg-green-100 border border-green-300 text-green-800 rounded-xl p-4">
-
-                ✅ Bedankt voor uw aanvraag. Wij nemen zo spoedig mogelijk contact met u op.
-
-              </div>
-
-            )}
 
           </form>
 
@@ -241,7 +148,9 @@ export default function ContactPage() {
               href="mailto:info@pixelcast.eu"
               className="bg-white rounded-3xl shadow-sm hover:shadow-lg transition p-8 text-center"
             >
-              <div className="text-5xl mb-4">📧</div>
+              <div className="text-5xl mb-4">
+                📧
+              </div>
 
               <h3 className="text-2xl font-bold mb-2">
                 E-mail
@@ -250,14 +159,15 @@ export default function ContactPage() {
               <p className="text-slate-600">
                 info@pixelcast.eu
               </p>
-
             </a>
 
             <a
               href="/"
               className="bg-white rounded-3xl shadow-sm hover:shadow-lg transition p-8 text-center"
             >
-              <div className="text-5xl mb-4">🌍</div>
+              <div className="text-5xl mb-4">
+                🌍
+              </div>
 
               <h3 className="text-2xl font-bold mb-2">
                 Website
@@ -266,14 +176,17 @@ export default function ContactPage() {
               <p className="text-slate-600">
                 pixelcast.eu
               </p>
-
             </a>
 
             <a
               href="https://cms.pixelcast.nl"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white rounded-3xl shadow-sm hover:shadow-lg transition p-8 text-center"
             >
-              <div className="text-5xl mb-4">☁️</div>
+              <div className="text-5xl mb-4">
+                ☁️
+              </div>
 
               <h3 className="text-2xl font-bold mb-2">
                 Platform
@@ -286,7 +199,6 @@ export default function ContactPage() {
               <p className="text-xs text-slate-400 mt-2">
                 Binnenkort beschikbaar
               </p>
-
             </a>
 
           </div>
@@ -327,7 +239,8 @@ export default function ContactPage() {
               </h3>
 
               <p className="text-slate-600">
-                Ja. Met PixelCast Cloud beheert u eenvoudig één of honderden locaties vanuit één centraal dashboard.
+                Ja. Met PixelCast Cloud beheert u eenvoudig één of honderden
+                locaties vanuit één centraal dashboard.
               </p>
 
             </div>
@@ -339,7 +252,8 @@ export default function ContactPage() {
               </h3>
 
               <p className="text-slate-600">
-                Ja. Wij verzorgen graag een vrijblijvende demonstratie op locatie of online.
+                Ja. Wij verzorgen graag een vrijblijvende demonstratie
+                op locatie of online.
               </p>
 
             </div>
@@ -351,7 +265,8 @@ export default function ContactPage() {
               </h3>
 
               <p className="text-slate-600">
-                PixelCast Cloud biedt centrale controle, contentplanning en monitoring van uw complete signage netwerk.
+                PixelCast Cloud biedt centrale controle,
+                contentplanning en monitoring van uw complete signage netwerk.
               </p>
 
             </div>

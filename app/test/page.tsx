@@ -1,55 +1,43 @@
 "use client";
 
-import { useState } from "react";
-
 export default function TestPage() {
-  const [loading, setLoading] = useState(false);
+  async function testApi() {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: "Dominic",
+          company: "PixelCast",
+          email: "info@pixelcast.eu",
+          phone: "0612345678",
+          interest: "Digital Signage",
+          screens: 10,
+          message: "Testbericht",
+        }),
+      });
 
-async function sendLead() {
-  try {
-    setLoading(true);
+      const result = await response.json();
 
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: "Dominic de Beer",
-        company: "PixelCast",
-        email: "info@pixelcast.eu",
-        phone: "0612345678",
-        interest: "Digital Signage",
-        screens: 10,
-        message: "Dit is een testbericht",
-      }),
-    });
+      console.log(result);
 
-    const result = await response.json();
+      alert(JSON.stringify(result, null, 2));
+    } catch (error) {
+      console.error(error);
 
-    console.log(result);
-
-    alert(
-      result.success
-        ? "Lead opgeslagen!"
-        : "Er ging iets fout"
-    );
-  } catch (error) {
-    console.error(error);
-    alert("API fout");
-  } finally {
-    setLoading(false);
+      alert("API ERROR");
+    }
   }
-}
 
   return (
     <main className="p-20">
       <button
-        onClick={sendLead}
-        disabled={loading}
+        onClick={testApi}
         className="bg-blue-600 text-white px-6 py-4 rounded-xl"
       >
-        Test Lead Opslaan
+        API Test
       </button>
     </main>
   );
