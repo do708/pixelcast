@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { supabaseServer } from "@/lib/supabase-server";
 import QuoteBuilder from "@/app/components/QuoteBuilder";
-import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -15,22 +15,52 @@ export default async function NewQuotePage({
 }: PageProps) {
   const { lead } = await searchParams;
 
-  const { data: leads } =
+  const leadId = lead ?? "";
+
+  const { data: leads, error: leadsError } =
     await supabaseServer
       .from("leads")
       .select("*")
       .order("name");
 
-  const { data: products } =
+  const { data: products, error: productsError } =
     await supabaseServer
       .from("products")
       .select("*")
       .order("name");
 
+  if (leadsError) {
+    return (
+      <main className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="bg-white p-8 rounded-3xl shadow-xl">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">
+            Fout bij laden van leads
+          </h1>
+
+          <p>{leadsError.message}</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (productsError) {
+    return (
+      <main className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="bg-white p-8 rounded-3xl shadow-xl">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">
+            Fout bij laden van producten
+          </h1>
+
+          <p>{productsError.message}</p>
+        </div>
+      </main>
+    );
+  }
+
   const selectedLead =
     leads?.find(
       (item) =>
-        String(item.id) === String(lead)
+        String(item.id) === String(leadId)
     ) || null;
 
   return (
@@ -48,7 +78,7 @@ export default async function NewQuotePage({
                 Nieuwe Offerte
               </h1>
 
-              <p className="text-slate-600 mt-2">
+              <p className="text-slate-600 mt-3">
                 Maak een nieuwe offerte voor een bestaande lead.
               </p>
 
@@ -56,7 +86,7 @@ export default async function NewQuotePage({
 
             <Link
               href="/admin/quotes"
-              className="bg-slate-900 text-white px-5 py-3 rounded-xl hover:bg-slate-800 transition"
+              className="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-xl transition"
             >
               ← Terug naar Offertes
             </Link>
@@ -67,35 +97,60 @@ export default async function NewQuotePage({
 
             <div className="bg-blue-50 border border-blue-200 rounded-3xl p-6 mb-8">
 
-              <h2 className="text-xl font-bold mb-2">
+              <h2 className="text-xl font-bold mb-4">
                 Geselecteerde Lead
               </h2>
 
-              <p>
-                <strong>
-                  {selectedLead.name}
-                </strong>
+              <div className="grid md:grid-cols-3 gap-6">
 
-                {selectedLead.company &&
-                  ` - ${selectedLead.company}`}
-              </p>
+                <div>
 
-              <p className="text-slate-600">
-                {selectedLead.email}
-              </p>
+                  <p className="text-sm text-slate-500">
+                    Naam
+                  </p>
+
+                  <p className="font-semibold">
+                    {selectedLead.name}
+                  </p>
+
+                </div>
+
+                <div>
+
+                  <p className="text-sm text-slate-500">
+                    Bedrijf
+                  </p>
+
+                  <p className="font-semibold">
+                    {selectedLead.company || "-"}
+                  </p>
+
+                </div>
+
+                <div>
+
+                  <p className="text-sm text-slate-500">
+                    E-mail
+                  </p>
+
+                  <p className="font-semibold">
+                    {selectedLead.email}
+                  </p>
+
+                </div>
+
+              </div>
 
             </div>
 
           )}
 
-          <div className="bg-white rounded-3xl shadow p-10">
+          <div className="bg-white rounded-3xl shadow-xl p-10">
 
             <QuoteBuilder
               leads={leads || []}
               products={products || []}
-              defaultLeadId={
-                lead || ""
-              }
+              defaultLeadId={leadId}
             />
 
           </div>
