@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 
 interface QuoteBuilderProps {
@@ -22,41 +22,95 @@ export default function QuoteBuilder({
   const [loading, setLoading] =
     useState(false);
 
-  const [selectedProducts,
-    setSelectedProducts] =
-    useState<number[]>([]);
+  const [items, setItems] =
+    useState<any[]>([]);
 
-  function toggleProduct(
+  function addProduct(
+    product: any
+  ) {
+    const existing =
+      items.find(
+        (item) =>
+          item.product_id ===
+          product.id
+      );
+
+    if (existing) {
+      const updated =
+        items.map((item) =>
+          item.product_id ===
+          product.id
+            ? {
+                ...item,
+                quantity:
+                  item.quantity +
+                  1,
+              }
+            : item
+        );
+
+      setItems(updated);
+      return;
+    }
+
+    setItems([
+      ...items,
+      {
+        product_id:
+          product.id,
+        name:
+          product.name,
+        quantity: 1,
+        price:
+          Number(
+            product.price
+          ),
+      },
+    ]);
+  }
+
+  function updateQuantity(
+    productId: number,
+    quantity: number
+  ) {
+    const updated =
+      items.map((item) =>
+        item.product_id ===
+        productId
+          ? {
+              ...item,
+              quantity:
+                quantity < 1
+                  ? 1
+                  : quantity,
+            }
+          : item
+      );
+
+    setItems(updated);
+  }
+
+  function removeProduct(
     productId: number
   ) {
-    setSelectedProducts((current) =>
-      current.includes(productId)
-        ? current.filter(
-            (id) => id !== productId
-          )
-        : [...current, productId]
+    setItems(
+      items.filter(
+        (item) =>
+          item.product_id !==
+          productId
+      )
     );
   }
 
-  const chosenProducts =
-    products.filter((product) =>
-      selectedProducts.includes(
-        product.id
-      )
-    );
-
-  const total =
-    chosenProducts.reduce(
-      (
-        sum,
-        product
-      ) =>
+  const total = useMemo(() => {
+    return items.reduce(
+      (sum, item) =>
         sum +
-        Number(
-          product.price
-        ),
+        item.quantity *
+          item.price,
       0
     );
+  }, [items]);
 
   async function createQuote() {
     if (!leadId) {
@@ -66,11 +120,9 @@ export default function QuoteBuilder({
       return;
     }
 
-    if (
-      chosenProducts.length === 0
-    ) {
+    if (items.length === 0) {
       alert(
-        "Selecteer minimaal één product."
+        "Voeg minimaal één product toe."
       );
       return;
     }
@@ -78,7 +130,6 @@ export default function QuoteBuilder({
     setLoading(true);
 
     try {
-
       const response =
         await fetch(
           "/api/quotes/create",
@@ -91,15 +142,15 @@ export default function QuoteBuilder({
             body: JSON.stringify({
               leadId,
               total,
-
               products:
-                chosenProducts.map(
-                  (
-                    product
-                  ) => ({
-                    id: product.id,
+                items.map(
+                  (item) => ({
+                    id:
+                      item.product_id,
+                    quantity:
+                      item.quantity,
                     price:
-                      product.price,
+                      item.price,
                   })
                 ),
             }),
@@ -117,20 +168,13 @@ export default function QuoteBuilder({
         );
       } else {
         alert(
-          "Offerte kon niet worden aangemaakt."
+          "Offerte aanmaken mislukt."
         );
       }
-
-    } catch (error) {
-
-      console.error(
-        error
-      );
-
+    } catch {
       alert(
         "Er ging iets fout."
       );
-
     }
 
     setLoading(false);
@@ -154,139 +198,159 @@ export default function QuoteBuilder({
           }
           className="w-full border rounded-xl p-4"
         >
-
           <option value="">
             Selecteer klant
           </option>
 
           {leads.map(
             (lead) => (
-
               <option
-                key={
-                  lead.id
-                }
-                value={
-                  lead.id
-                }
+                key={lead.id}
+                value={lead.id}
               >
-                {lead.name}
-                {lead.company
-                  ? ` - ${lead.company}`
-                  : ""}
+                {lead.company ||
+                  lead.name}
               </option>
-
             )
           )}
-
         </select>
 
       </div>
 
       <div>
 
-        <label className="block font-semibold mb-4">
-          Producten
+        <label className="block font-semibold mb-3">
+          Product toevoegen
         </label>
 
-        <div className="space-y-3">
+        <select
+          onChange={(e) => {
+            const product =
+              products.find(
+                (p) =>
+                  String(
+                    p.id
+                  ) ===
+                  e.target.value
+              );
+
+            if (product) {
+              addProduct(
+                product
+              );
+            }
+
+            e.target.value =
+              "";
+          }}
+          className="w-full border rounded-xl p-4"
+        >
+          <option value="">
+            Kies product
+          </option>
 
           {products.map(
             (product) => (
-
-              <label
+              <option
                 key={
                   product.id
                 }
-                className="flex justify-between items-center border rounded-xl p-4 hover:bg-slate-50 cursor-pointer"
+                value={
+                  product.id
+                }
               >
-
-                <div>
-
-                  <input
-                    type="checkbox"
-                    checked={selectedProducts.includes(
-                      product.id
-                    )}
-                    onChange={() =>
-                      toggleProduct(
-                        product.id
-                      )
-                    }
-                    className="mr-3"
-                  />
-
-                  {product.name}
-
-                  <span className="ml-2 text-sm text-slate-500">
-                    (
-                    {
-                      product.category
-                    }
-                    )
-                  </span>
-
-                </div>
-
-                <div className="font-semibold">
-
-                  €
-                  {Number(
-                    product.price
-                  ).toFixed(
-                    2
-                  )}
-
-                </div>
-
-              </label>
-
+                {product.name}
+              </option>
             )
           )}
-
-        </div>
+        </select>
 
       </div>
 
-      {chosenProducts.length >
-        0 && (
+      {items.length > 0 && (
 
-        <div className="bg-slate-100 rounded-2xl p-6">
+        <div className="bg-white border rounded-2xl p-6">
 
-          <h3 className="font-bold text-xl mb-4">
-            Geselecteerde Producten
+          <h3 className="font-bold text-xl mb-6">
+            Productregels
           </h3>
 
-          <div className="space-y-2">
+          <div className="space-y-4">
 
-            {chosenProducts.map(
-              (
-                product
-              ) => (
+            {items.map(
+              (item) => (
 
                 <div
                   key={
-                    product.id
+                    item.product_id
                   }
-                  className="flex justify-between"
+                  className="grid grid-cols-12 gap-4 items-center"
                 >
 
-                  <span>
-                    {
-                      product.name
-                    }
-                  </span>
+                  <div className="col-span-5">
+                    {item.name}
+                  </div>
 
-                  <span>
+                  <div className="col-span-2">
+
+                    <input
+                      type="number"
+                      min="1"
+                      value={
+                        item.quantity
+                      }
+                      onChange={(
+                        e
+                      ) =>
+                        updateQuantity(
+                          item.product_id,
+                          Number(
+                            e
+                              .target
+                              .value
+                          )
+                        )
+                      }
+                      className="w-full border rounded-lg p-2"
+                    />
+
+                  </div>
+
+                  <div className="col-span-2">
 
                     €
-                    {Number(
-                      product.price
+                    {item.price.toFixed(
+                      2
+                    )}
+
+                  </div>
+
+                  <div className="col-span-2 font-semibold">
+
+                    €
+                    {(
+                      item.quantity *
+                      item.price
                     ).toFixed(
                       2
                     )}
 
-                  </span>
+                  </div>
+
+                  <div className="col-span-1">
+
+                    <button
+                      onClick={() =>
+                        removeProduct(
+                          item.product_id
+                        )
+                      }
+                      className="text-red-600"
+                    >
+                      ✕
+                    </button>
+
+                  </div>
 
                 </div>
 
@@ -301,9 +365,9 @@ export default function QuoteBuilder({
 
       <div className="bg-green-50 border border-green-200 rounded-2xl p-6">
 
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between">
 
-          <span className="text-xl font-semibold">
+          <span className="text-xl font-bold">
             Totaal
           </span>
 
@@ -327,13 +391,11 @@ export default function QuoteBuilder({
         disabled={
           loading
         }
-        className="bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white px-8 py-4 rounded-xl font-semibold"
+        className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl"
       >
-
         {loading
-          ? "Offerte aanmaken..."
+          ? "Aanmaken..."
           : "Offerte Aanmaken"}
-
       </button>
 
     </div>

@@ -5,51 +5,75 @@ export const dynamic = "force-dynamic";
 
 export default async function AdminDashboard() {
 
-  const { data: leads } = await supabaseServer
-    .from("leads")
-    .select("*");
+  const { data: leads } =
+    await supabaseServer
+      .from("leads")
+      .select("*");
 
-  const total = leads?.length || 0;
+  const { data: quotes } =
+    await supabaseServer
+      .from("quotes")
+      .select("*");
 
-  const nieuw =
-    leads?.filter(
-      (l) => l.status === "Nieuw"
+  const totalLeads =
+    leads?.length || 0;
+
+  const totalQuotes =
+    quotes?.length || 0;
+
+  const openQuotes =
+    quotes?.filter(
+      (q) =>
+        q.status === "Concept" ||
+        q.status === "Verstuurd"
     ).length || 0;
 
-  const contact =
-    leads?.filter(
-      (l) =>
-        l.status ===
-        "Contact opgenomen"
+  const acceptedQuotes =
+    quotes?.filter(
+      (q) =>
+        q.status ===
+        "Geaccepteerd"
     ).length || 0;
 
-  const demo =
-    leads?.filter(
-      (l) =>
-        l.status ===
-        "Demo gepland"
+  const rejectedQuotes =
+    quotes?.filter(
+      (q) =>
+        q.status ===
+        "Afgewezen"
     ).length || 0;
 
-  const offerte =
-    leads?.filter(
-      (l) =>
-        l.status ===
-        "Offerte verstuurd"
-    ).length || 0;
+  const quoteValue =
+    quotes?.reduce(
+      (sum, q) =>
+        sum +
+        Number(q.total || 0),
+      0
+    ) || 0;
 
-  const gewonnen =
-    leads?.filter(
-      (l) =>
-        l.status ===
-        "Gewonnen"
-    ).length || 0;
+  const acceptedValue =
+    quotes
+      ?.filter(
+        (q) =>
+          q.status ===
+          "Geaccepteerd"
+      )
+      .reduce(
+        (sum, q) =>
+          sum +
+          Number(
+            q.total || 0
+          ),
+        0
+      ) || 0;
 
-  const verloren =
-    leads?.filter(
-      (l) =>
-        l.status ===
-        "Verloren"
-    ).length || 0;
+  const conversion =
+    totalQuotes > 0
+      ? (
+          (acceptedQuotes /
+            totalQuotes) *
+          100
+        ).toFixed(1)
+      : "0";
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -58,135 +82,160 @@ export default async function AdminDashboard() {
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <h1 className="text-5xl font-bold mb-12">
-            PixelCast Dashboard
-          </h1>
+          <div className="flex justify-between items-center mb-12">
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
+            <div>
 
-            <div className="bg-white rounded-3xl p-6 shadow">
+              <h1 className="text-5xl font-bold">
+                PixelCast CRM
+              </h1>
+
+              <p className="text-slate-500 mt-2">
+                Dashboard
+              </p>
+
+            </div>
+
+            <div className="flex gap-3">
+
+              <Link
+                href="/admin/leads"
+                className="bg-slate-900 text-white px-5 py-3 rounded-xl"
+              >
+                Leads
+              </Link>
+
+              <Link
+                href="/admin/quotes"
+                className="bg-blue-600 text-white px-5 py-3 rounded-xl"
+              >
+                Offertes
+              </Link>
+
+            </div>
+
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+
+            <div className="bg-white rounded-3xl shadow p-6">
               <p className="text-slate-500">
-                Totaal
+                Leads
               </p>
               <h2 className="text-4xl font-bold">
-                {total}
+                {totalLeads}
               </h2>
             </div>
 
-            <div className="bg-white rounded-3xl p-6 shadow">
+            <div className="bg-white rounded-3xl shadow p-6">
               <p className="text-slate-500">
-                Nieuw
+                Offertes
               </p>
               <h2 className="text-4xl font-bold">
-                {nieuw}
+                {totalQuotes}
               </h2>
             </div>
 
-            <div className="bg-white rounded-3xl p-6 shadow">
+            <div className="bg-white rounded-3xl shadow p-6">
               <p className="text-slate-500">
-                Contact
+                Openstaand
               </p>
-              <h2 className="text-4xl font-bold">
-                {contact}
+              <h2 className="text-4xl font-bold text-orange-600">
+                {openQuotes}
               </h2>
             </div>
 
-            <div className="bg-white rounded-3xl p-6 shadow">
+            <div className="bg-white rounded-3xl shadow p-6">
               <p className="text-slate-500">
-                Demo
+                Conversie
               </p>
-              <h2 className="text-4xl font-bold">
-                {demo}
+              <h2 className="text-4xl font-bold text-green-600">
+                {conversion}%
               </h2>
             </div>
 
-            <div className="bg-white rounded-3xl p-6 shadow">
-              <p className="text-slate-500">
-                Offerte
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6 mb-12">
+
+            <div className="bg-white rounded-3xl shadow p-8">
+
+              <p className="text-slate-500 mb-3">
+                Totale Offertewaarde
               </p>
-              <h2 className="text-4xl font-bold">
-                {offerte}
+
+              <h2 className="text-4xl font-bold text-blue-600">
+
+                €
+                {quoteValue.toLocaleString(
+                  "nl-NL"
+                )}
+
               </h2>
+
             </div>
 
-            <div className="bg-white rounded-3xl p-6 shadow">
-              <p className="text-slate-500">
-                Gewonnen
+            <div className="bg-white rounded-3xl shadow p-8">
+
+              <p className="text-slate-500 mb-3">
+                Gewonnen Omzet
               </p>
-              <h2 className="text-4xl font-bold">
-                {gewonnen}
+
+              <h2 className="text-4xl font-bold text-green-600">
+
+                €
+                {acceptedValue.toLocaleString(
+                  "nl-NL"
+                )}
+
               </h2>
+
+            </div>
+
+            <div className="bg-white rounded-3xl shadow p-8">
+
+              <p className="text-slate-500 mb-3">
+                Verloren Offertes
+              </p>
+
+              <h2 className="text-4xl font-bold text-red-600">
+
+                {rejectedQuotes}
+
+              </h2>
+
             </div>
 
           </div>
 
           <div className="bg-white rounded-3xl shadow p-8">
 
-            <div className="flex justify-between items-center mb-8">
+            <h2 className="text-2xl font-bold mb-6">
+              Snelle Acties
+            </h2>
 
-              <h2 className="text-3xl font-bold">
-                Laatste Leads
-              </h2>
+            <div className="flex flex-wrap gap-4">
 
               <Link
                 href="/admin/leads"
-                className="bg-blue-600 text-white px-5 py-3 rounded-xl"
+                className="bg-slate-900 text-white px-6 py-4 rounded-xl"
               >
-                Alle Leads
+                Leads Beheren
               </Link>
 
-            </div>
+              <Link
+                href="/admin/quotes"
+                className="bg-blue-600 text-white px-6 py-4 rounded-xl"
+              >
+                Offertes Beheren
+              </Link>
 
-            <div className="space-y-4">
-
-              {leads
-                ?.sort(
-                  (a, b) =>
-                    new Date(
-                      b.created_at
-                    ).getTime() -
-                    new Date(
-                      a.created_at
-                    ).getTime()
-                )
-                .slice(0, 10)
-                .map((lead) => (
-
-                  <Link
-                    key={lead.id}
-                    href={`/admin/leads/${lead.id}`}
-                    className="block border rounded-2xl p-4 hover:bg-slate-50"
-                  >
-
-                    <div className="flex justify-between">
-
-                      <div>
-
-                        <h3 className="font-semibold">
-                          {lead.name}
-                        </h3>
-
-                        <p className="text-slate-500">
-                          {lead.company}
-                        </p>
-
-                      </div>
-
-                      <div>
-
-                        <span className="bg-slate-100 px-3 py-1 rounded-full text-sm">
-
-                          {lead.status || "Nieuw"}
-
-                        </span>
-
-                      </div>
-
-                    </div>
-
-                  </Link>
-
-                ))}
+              <Link
+                href="/admin/quotes/new"
+                className="bg-green-600 text-white px-6 py-4 rounded-xl"
+              >
+                Nieuwe Offerte
+              </Link>
 
             </div>
 

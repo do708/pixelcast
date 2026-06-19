@@ -35,15 +35,17 @@ export async function POST(request: Request) {
       body.products &&
       body.products.length > 0
     ) {
-      const items =
-        body.products.map(
-          (product: any) => ({
-            quote_id: quote.id,
-            product_id: product.id,
-            quantity: 1,
-            unit_price: product.price,
-          })
-        );
+const items =
+  body.products.map(
+    (product: any) => ({
+      quote_id: quote.id,
+      product_id: product.id,
+      quantity:
+        product.quantity || 1,
+      unit_price:
+        product.price,
+    })
+  );
 
       await supabaseServer
         .from("quote_items")

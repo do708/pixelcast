@@ -4,10 +4,35 @@ import { supabaseServer } from "@/lib/supabase-server";
 export const dynamic = "force-dynamic";
 
 export default async function ProductsPage() {
-  const { data: products, error } = await supabaseServer
-    .from("products")
-    .select("*")
-    .order("name");
+
+  const { data: products, error } =
+    await supabaseServer
+      .from("products")
+      .select("*")
+      .order("name");
+
+  const totalProducts =
+    products?.length || 0;
+
+  const totalValue =
+    products?.reduce(
+      (sum, product) =>
+        sum +
+        Number(
+          product.price || 0
+        ),
+      0
+    ) || 0;
+
+  const categories =
+    [
+      ...new Set(
+        products?.map(
+          (p) =>
+            p.category
+        ) || []
+      ),
+    ];
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -25,7 +50,7 @@ export default async function ProductsPage() {
               </h1>
 
               <p className="text-slate-600 mt-2">
-                Beheer alle PixelCast producten.
+                Beheer alle PixelCast producten
               </p>
 
             </div>
@@ -50,15 +75,48 @@ export default async function ProductsPage() {
 
           </div>
 
-          <div className="bg-white rounded-3xl shadow p-6 mb-8">
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
 
-            <p className="text-slate-500">
-              Totaal Producten
-            </p>
+            <div className="bg-white rounded-3xl shadow p-6">
 
-            <h2 className="text-4xl font-bold">
-              {products?.length || 0}
-            </h2>
+              <p className="text-slate-500">
+                Producten
+              </p>
+
+              <h2 className="text-4xl font-bold">
+                {totalProducts}
+              </h2>
+
+            </div>
+
+            <div className="bg-white rounded-3xl shadow p-6">
+
+              <p className="text-slate-500">
+                Categorieën
+              </p>
+
+              <h2 className="text-4xl font-bold">
+                {categories.length}
+              </h2>
+
+            </div>
+
+            <div className="bg-white rounded-3xl shadow p-6">
+
+              <p className="text-slate-500">
+                Totaal Catalogus
+              </p>
+
+              <h2 className="text-3xl font-bold text-green-600">
+
+                €
+                {totalValue.toFixed(
+                  2
+                )}
+
+              </h2>
+
+            </div>
 
           </div>
 
@@ -80,16 +138,20 @@ export default async function ProductsPage() {
 
                 <tr>
 
-                  <th className="text-left p-4">
+                  <th className="text-left p-5">
                     Product
                   </th>
 
-                  <th className="text-left p-4">
+                  <th className="text-left p-5">
                     Categorie
                   </th>
 
-                  <th className="text-left p-4">
+                  <th className="text-left p-5">
                     Prijs
+                  </th>
+
+                  <th className="text-left p-5">
+                    Aangemaakt
                   </th>
 
                 </tr>
@@ -98,46 +160,80 @@ export default async function ProductsPage() {
 
               <tbody>
 
-                {products?.map((product) => (
+                {products?.map(
+                  (
+                    product
+                  ) => (
 
-                  <tr
-                    key={product.id}
-                    className="border-t hover:bg-slate-50"
-                  >
+                    <tr
+                      key={
+                        product.id
+                      }
+                      className="border-t hover:bg-slate-50"
+                    >
 
-                    <td className="p-4 font-medium">
+                      <td className="p-5 font-medium">
 
-                      <Link
-                        href={`/admin/products/${product.id}`}
-                        className="text-blue-600 hover:underline"
-                      >
-                        {product.name}
-                      </Link>
+                        <Link
+                          href={`/admin/products/${product.id}`}
+                          className="text-blue-600 hover:underline"
+                        >
+                          {product.name}
+                        </Link>
 
-                    </td>
+                      </td>
 
-                    <td className="p-4">
-                      {product.category}
-                    </td>
+                      <td className="p-5">
 
-                    <td className="p-4">
-                      € {Number(product.price).toFixed(2)}
-                    </td>
+                        <span className="bg-slate-100 px-3 py-1 rounded-full text-sm">
 
-                  </tr>
+                          {
+                            product.category
+                          }
 
-                ))}
+                        </span>
 
-                {(!products || products.length === 0) && (
+                      </td>
+
+                      <td className="p-5 font-semibold text-green-700">
+
+                        €
+                        {Number(
+                          product.price
+                        ).toFixed(
+                          2
+                        )}
+
+                      </td>
+
+                      <td className="p-5 text-slate-500">
+
+                        {product.created_at
+                          ? new Date(
+                              product.created_at
+                            ).toLocaleDateString(
+                              "nl-NL"
+                            )
+                          : "-"}
+
+                      </td>
+
+                    </tr>
+
+                  )
+                )}
+
+                {(!products ||
+                  products.length === 0) && (
 
                   <tr>
 
                     <td
-                      colSpan={3}
+                      colSpan={4}
                       className="p-10 text-center text-slate-500"
                     >
 
-                      Nog geen producten gevonden.
+                      Nog geen producten gevonden
 
                     </td>
 

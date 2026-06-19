@@ -1,50 +1,131 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+const categories = [
+  "Digital Signage",
+  "Player",
+  "Display",
+  "Touchscreen",
+  "Videowall",
+  "Mounting",
+  "Audio",
+  "Software",
+  "Licentie",
+  "Installatie",
+  "Onderhoud",
+  "Dienst",
+  "Hardware",
+];
 
 export default function NewProductPage() {
-  const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
+
+  const [loading, setLoading] =
+    useState(false);
 
   async function handleSubmit(
     e: React.FormEvent<HTMLFormElement>
   ) {
+
     e.preventDefault();
 
-    const form = e.currentTarget;
+    const form =
+      e.currentTarget;
+
+    const formData =
+      new FormData(form);
+
+    const name =
+      String(
+        formData.get("name")
+      );
+
+    const category =
+      String(
+        formData.get("category")
+      );
+
+    const price =
+      Number(
+        formData.get("price")
+      );
+
+    if (!name.trim()) {
+      alert(
+        "Productnaam ontbreekt"
+      );
+      return;
+    }
+
+    if (!category.trim()) {
+      alert(
+        "Categorie ontbreekt"
+      );
+      return;
+    }
+
+    if (price <= 0) {
+      alert(
+        "Prijs moet groter zijn dan 0"
+      );
+      return;
+    }
 
     setLoading(true);
 
     try {
-      const formData = new FormData(form);
 
-      const response = await fetch(
-        "/api/products/create",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.get("name"),
-            category: formData.get("category"),
-            price: Number(
-              formData.get("price")
-            ),
-          }),
-        }
+      const response =
+        await fetch(
+          "/api/products/create",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type":
+                "application/json",
+            },
+            body: JSON.stringify({
+              name,
+              category,
+              price,
+            }),
+          }
+        );
+
+      const result =
+        await response.json();
+
+      if (
+        result.success
+      ) {
+
+        alert(
+          "✅ Product opgeslagen"
+        );
+
+        router.push(
+          "/admin/products"
+        );
+
+      } else {
+
+        alert(
+          "❌ Product opslaan mislukt"
+        );
+
+      }
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(
+        "❌ Er ging iets fout"
       );
 
-      const result = await response.json();
-
-      if (result.success) {
-        alert("✅ Product opgeslagen");
-        form.reset();
-      } else {
-        alert("❌ Fout bij opslaan");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("❌ Er ging iets fout");
     }
 
     setLoading(false);
@@ -66,7 +147,7 @@ export default function NewProductPage() {
               </h1>
 
               <p className="text-slate-600 mt-2">
-                Voeg een product toe aan de PixelCast catalogus.
+                Voeg een product toe aan de PixelCast catalogus
               </p>
 
             </div>
@@ -75,13 +156,15 @@ export default function NewProductPage() {
               href="/admin/products"
               className="bg-slate-900 text-white px-5 py-3 rounded-xl"
             >
-              ← Terug
+              Terug
             </a>
 
           </div>
 
           <form
-            onSubmit={handleSubmit}
+            onSubmit={
+              handleSubmit
+            }
             className="bg-white rounded-3xl shadow p-10 space-y-6"
           >
 
@@ -94,8 +177,8 @@ export default function NewProductPage() {
               <input
                 name="name"
                 required
-                placeholder="PixelCast Professional"
                 className="w-full border rounded-xl p-4"
+                placeholder="Samsung QM55C"
               />
 
             </div>
@@ -111,29 +194,30 @@ export default function NewProductPage() {
                 required
                 className="w-full border rounded-xl p-4"
               >
+
                 <option value="">
                   Kies categorie
                 </option>
 
-                <option value="Software">
-                  Software
-                </option>
+                {categories.map(
+                  (
+                    category
+                  ) => (
 
-                <option value="Hardware">
-                  Hardware
-                </option>
+                    <option
+                      key={
+                        category
+                      }
+                      value={
+                        category
+                      }
+                    >
+                      {category}
+                    </option>
 
-                <option value="Dienst">
-                  Dienst
-                </option>
+                  )
+                )}
 
-                <option value="Audio">
-                  Audio
-                </option>
-
-                <option value="Digital Signage">
-                  Digital Signage
-                </option>
               </select>
 
             </div>
@@ -148,26 +232,27 @@ export default function NewProductPage() {
                 name="price"
                 type="number"
                 step="0.01"
+                min="0"
                 required
-                placeholder="24.95"
                 className="w-full border rounded-xl p-4"
+                placeholder="999.00"
               />
 
             </div>
 
-            <div className="pt-4">
+            <button
+              type="submit"
+              disabled={
+                loading
+              }
+              className="bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white px-8 py-4 rounded-xl font-semibold"
+            >
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white px-8 py-4 rounded-xl font-semibold"
-              >
-                {loading
-                  ? "Opslaan..."
-                  : "Product Opslaan"}
-              </button>
+              {loading
+                ? "Opslaan..."
+                : "Product Opslaan"}
 
-            </div>
+            </button>
 
           </form>
 

@@ -12,6 +12,7 @@ return ( <main className="min-h-screen bg-white">
 
       <h1 className="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
         Your Message, Everywhere.
+        
       </h1>
 
       <p className="mt-8 text-xl text-slate-600 max-w-4xl mx-auto">
